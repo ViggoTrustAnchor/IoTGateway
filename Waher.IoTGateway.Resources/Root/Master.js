@@ -22,8 +22,7 @@ function NativeHeader() {
             if (rightX > window.innerWidth) {
                 // go to top submenu
                 let element = subMenu
-                while(element.parentElement.parentElement.parentElement.tagName.toLowerCase() == "li")
-                {
+                while (element.parentElement.parentElement.parentElement.tagName.toLowerCase() == "li") {
                     element = element.parentElement.parentElement
                 }
 
@@ -37,11 +36,13 @@ function NativeHeader() {
                 const handler = () => {
                     topLevelLi.removeEventListener("mouseenter", handler);
                     element.style.transform = ""
-                  };
+                };
                 topLevelLi.addEventListener("mouseenter", handler);
             }
         })
     })
+
+
 
     function ToggleNav() {
         header.toggleAttribute("data-visible");
@@ -52,9 +53,77 @@ function NativeHeader() {
     }
 }
 
+function Popup() {
+    const popupStack = [];
+
+    function PopStack(args) {
+        const element = popupStack.pop()
+        element.OnPop(args)
+    }
+
+    function DisplayPopup() {
+        if (popupStack.length) {
+            document.getElementById("nativ-popup-container").innerHTML = popupStack[popupStack.length - 1]
+        }
+    }
+
+    async function Popup(html) {
+        return new Promise((resolve, reject) => {
+            popupStack.push({
+                html: html,
+                OnPop: (args) => resolve(args),
+            })
+            DisplayPopup()
+        })
+    }
+    async function Alert(message) {
+        const html = CreateHTMLAlert({ Message: message });
+        await Popup(hmtl);
+    }
+    function AlertOk() {
+        PopStack()
+    }
+
+    async function Confirm(message) {
+        const html = CreateHTMLConfirm({ Message: message });
+        await Popup(html);
+    }
+
+    function ConfirmYes() {
+        PopStack(true)
+    }
+    function ConfirmNo() {
+        PopStack(false)
+    }
+
+    async function Prompt(message)
+    {
+        const html = CreateHTMLPrompt({ Message: message });
+        await Popup(html);
+    }
+
+    async function PromptSubmit(value)
+    {
+        PopStack(value)
+    }
+
+    return {
+        Alert,
+        AlertOk,
+        Confirm,
+        ConfirmYes,
+        ConfirmNo,
+        Prompt,
+        PromptSubmit,
+    }
+}
+
+let popup;
 let nativeHeader;
 
 window.addEventListener("load", () => {
     nativeHeader = NativeHeader();
+    popup = Popup()
+    popup.Alert("test");
 })
 

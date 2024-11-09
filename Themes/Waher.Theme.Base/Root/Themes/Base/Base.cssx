@@ -40,6 +40,25 @@ main
 }
 
 
+/* #region Footnotes*/
+#native-popup-container
+{
+    position: fixed;
+    background-color: ¤BackgroundColor¤;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+}
+
+#native-popup-container * 
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* #endregion Footnotes*/
+
 /*#region Footnotes*/
 
 .footnote-ref

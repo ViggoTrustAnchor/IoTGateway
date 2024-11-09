@@ -1,5 +1,6 @@
 ﻿Copyright: /Copyright.md
 CSS: {{Theme.CSSX}}
+Javascript: Alert.md.js
 Javascript: Master.js
 
 <header id="native-header">
@@ -25,3 +26,6 @@ Javascript: Master.js
 [%Details]
 
 </main>
+
+<dialoge id ="native-popup-container">
+</dialoge>

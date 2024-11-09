@@ -168,6 +168,7 @@
     <None Remove="Highlight\styles\zenburn.css" />
     <None Remove="Root\Admin.cssx" />
     <None Remove="Root\Admin.md" />
+    <None Remove="Root\Alert.md" />
     <None Remove="Root\Audio\glass_ping-Go445-1207030150.mp3" />
     <None Remove="Root\Audio\glass_ping-Go445-1207030150.wav" />
     <None Remove="Root\Emojis.md" />
@@ -688,6 +689,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Highlight\styles\zenburn.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\Alert.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Root\GraphVizLab\Examples\Network.dot">

@@ -149,6 +149,7 @@
 	<Folder name="Root">
 		<Content fileName="Admin.cssx"/>
 		<Content fileName="Admin.md"/>
+		<Content fileName="Alert.js"/>
 		<Content fileName="Emojis.md"/>
 		<Content fileName="Entities.md"/>
 		<Content fileName="favicon.ico"/>
