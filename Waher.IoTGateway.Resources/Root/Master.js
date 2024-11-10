@@ -57,13 +57,16 @@ function Popup() {
     const popupStack = [];
 
     function PopStack(args) {
-        const element = popupStack.pop()
-        element.OnPop(args)
+        popupStack.pop().OnPop(args)
+        DisplayPopup()
     }
 
     function DisplayPopup() {
         if (popupStack.length) {
-            document.getElementById("nativ-popup-container").innerHTML = popupStack[popupStack.length - 1]
+            document.getElementById("native-popup-container").innerHTML = popupStack[popupStack.length - 1].html
+        }
+        else {
+            document.getElementById("native-popup-container").innerHTML = ""
         }
     }
 
@@ -77,16 +80,16 @@ function Popup() {
         })
     }
     async function Alert(message) {
-        const html = CreateHTMLAlert({ Message: message });
-        await Popup(hmtl);
+        const html = CreateHTMLAlertPopup({ Message: message });
+        await Popup(html);
     }
     function AlertOk() {
         PopStack()
     }
 
     async function Confirm(message) {
-        const html = CreateHTMLConfirm({ Message: message });
-        await Popup(html);
+        const html = CreateHTMLConfirmPopup({ Message: message });
+        return await Popup(html);
     }
 
     function ConfirmYes() {
@@ -96,14 +99,12 @@ function Popup() {
         PopStack(false)
     }
 
-    async function Prompt(message)
-    {
-        const html = CreateHTMLPrompt({ Message: message });
-        await Popup(html);
+    async function Prompt(message) {
+        const html = CreateHTMLPromptPopup({ Message: message });
+        return await Popup(html);
     }
 
-    async function PromptSubmit(value)
-    {
+    async function PromptSubmit(value) {
         PopStack(value)
     }
 
@@ -121,9 +122,24 @@ function Popup() {
 let popup;
 let nativeHeader;
 
+async function Test() {
+    while (true) {
+        const input = await popup.Prompt("name a color")
+        const confirm = await popup.Confirm(`is you favorite color is ${input}?`)
+
+        if (confirm) {
+            await popup.Alert("good choise")
+            break
+        } else {
+            await popup.Alert("let´s try again?")
+        }
+    }
+}
+
 window.addEventListener("load", () => {
     nativeHeader = NativeHeader();
     popup = Popup()
-    popup.Alert("test");
+
+    popup.Confirm()
 })
 

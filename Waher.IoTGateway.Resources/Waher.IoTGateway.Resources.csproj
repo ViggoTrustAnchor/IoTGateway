@@ -168,9 +168,10 @@
     <None Remove="Highlight\styles\zenburn.css" />
     <None Remove="Root\Admin.cssx" />
     <None Remove="Root\Admin.md" />
-    <None Remove="Root\Alert.md" />
+    <None Remove="Root\AlertPopup.md" />
     <None Remove="Root\Audio\glass_ping-Go445-1207030150.mp3" />
     <None Remove="Root\Audio\glass_ping-Go445-1207030150.wav" />
+    <None Remove="Root\ConfirmPopup.md" />
     <None Remove="Root\Emojis.md" />
     <None Remove="Root\Entities.md" />
     <None Remove="Root\favicon.ico" />
@@ -234,6 +235,7 @@
     <None Remove="Root\PlantUmlLab\PlantUmlLabGraph.md" />
     <None Remove="Root\Prompt.js" />
     <None Remove="Root\Prompt.md" />
+    <None Remove="Root\PromptPopup.md" />
     <None Remove="Root\RemoteEndpoint.js" />
     <None Remove="Root\RemoteEndpoint.md" />
     <None Remove="Root\RemoteEndpointClear.ws" />
@@ -691,7 +693,13 @@
     <Content Include="Highlight\styles\zenburn.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Root\Alert.md">
+    <Content Include="Root\ConfirmPopup.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\PromptPopup.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\AlertPopup.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Root\GraphVizLab\Examples\Network.dot">
