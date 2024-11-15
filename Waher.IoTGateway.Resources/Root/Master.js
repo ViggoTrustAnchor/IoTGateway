@@ -80,7 +80,7 @@ function Popup() {
         })
     }
     async function Alert(message) {
-        const html = CreateHTMLAlertPopup({ Message: message });
+        const html = CreateHTMLAlertPopup({ Message: `<p>${message}</p>`});
         await Popup(html);
     }
     function AlertOk() {
@@ -88,7 +88,7 @@ function Popup() {
     }
 
     async function Confirm(message) {
-        const html = CreateHTMLConfirmPopup({ Message: message });
+        const html = CreateHTMLConfirmPopup({ Message: `<p>${message}</p>`});
         return await Popup(html);
     }
 
@@ -100,7 +100,7 @@ function Popup() {
     }
 
     async function Prompt(message) {
-        const html = CreateHTMLPromptPopup({ Message: message });
+        const html = CreateHTMLPromptPopup({ Message: `<p>${message}</p>`});
         return await Popup(html);
     }
 
@@ -140,6 +140,6 @@ window.addEventListener("load", () => {
     nativeHeader = NativeHeader();
     popup = Popup()
 
-    popup.Confirm()
+    popup.Confirm("This is a prompt. Answer yes or no.")
 })
 
