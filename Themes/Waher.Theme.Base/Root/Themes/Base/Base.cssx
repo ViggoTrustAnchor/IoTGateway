@@ -1,4 +1,4 @@
-*
+﻿*
 {
     box-sizing: border-box;
 }
@@ -64,7 +64,24 @@ main
 #native-popup-container * 
 {
     margin: 0;
-    padding: 0;
+}
+
+#native-popup-options
+{
+    display: block;
+    width: min-content
+}
+
+#native-popup-options input
+{
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#native-popup-options button
+{
+    margin-right: 1em;
+    padding: 0.5em 1em;
 }
 
 /* #endregion Popup */

@@ -1,4 +1,2 @@
 ## Prompt
-{Args.Message}
-<input id="native-prompt-input"/>
-<button OnClick="popup.PromptSubmit(document.getElementById('native-prompt-input').value)">Submit</button>
+<div>{Args.Message}</div><div id="native-popup-options"><input id="native-prompt-input"/><button OnClick="popup.PromptSubmit(document.getElementById('native-prompt-input').value)">Submit</button></div>

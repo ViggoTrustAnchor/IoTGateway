@@ -140,6 +140,9 @@ window.addEventListener("load", () => {
     nativeHeader = NativeHeader();
     popup = Popup()
 
-    popup.Confirm("This is a prompt. Answer yes or no.")
+    popup.Alert(`Exception in thread "main" java.lang.NullPointerException
+        at com.example.myproject.Book.getTitle(Book.java:16)
+        at com.example.myproject.Author.getBookTitles(Author.java:25)
+        at com.example.myproject.Bootstrap.main(Bootstrap.java:14)`)
 })
 
